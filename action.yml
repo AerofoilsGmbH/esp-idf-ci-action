@@ -27,6 +27,6 @@ runs:
     - run: |
         export IDF_TARGET=$(echo "${{ inputs.target }}" | tr '[:upper:]' '[:lower:]' | tr -d '_-')
         docker run -t -e IDF_TARGET="${IDF_TARGET}" -v "${GITHUB_WORKSPACE}:/app/${{ github.repository }}" \
-        -w "/app/${{ github.repository }}/${{ inputs.path }}" espressif/idf:${{ inputs.esp_idf_version }} \
+        -w "/app/${{ github.repository }}/${{ inputs.path }}" timoxd7/aero-idf:${{ inputs.esp_idf_version }} \
         git config --global --add safe.directory /app && ${{ inputs.command }}
       shell: bash
